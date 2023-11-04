@@ -1,0 +1,18 @@
+{% set menu = {
+"Home": url_for("index"),
+"Login": url_for("login"),
+"Register": url_for("register")
+}
+%}
+
+<nav class="navbar navbar-dark bg-dark" style="background-color: #66ccff;">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+           {%for name, url  in menu.items() %}
+            <li class="nav-item">
+                <a class="nav-link" href={{url}}>  {{name | upper }}   </a>
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+</nav>

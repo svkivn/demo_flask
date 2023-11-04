@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+{% from "_render_field.html" import render_field %}
+
+<div class="container m">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 jumbotron text-center">
+			<h3 class="text-center text-white pt-5">Reg form</h3>
+			<form method="post" class="text-center border border-light p-5"
+				  action="{{url_for('register')}}" novalidate>
+
+					{{ form.hidden_tag() }}
+					{% for field in form if field not in [form.submit, form.hidden_tag, form.csrf_token] %}
+						<div class="form-group">
+							{{render_field(field, size=50, class='form-control', placeholder=field.label.text)}}
+						</div>
+					{% endfor %}
+					{{ form.submit(class="btn btn-block btn-warning") }}
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+ 
+
+

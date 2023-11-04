@@ -1,0 +1,8 @@
+/env/*
+env/*
+/venv/*
+venv/*
+.idea
+app/__pycache___/
+instance/
+migrations/

@@ -1,0 +1,18 @@
+{% macro render_field(field) %}
+
+ <dt>{{ field.label(class="text-info") }}
+
+{% if field.errors %}
+<dd>{{ field(style="background-color: #e3a2c4;", **kwargs) | safe }}
+        <ul>
+        {% for error in field.errors %}
+        <li  class="list-group-item list-group-item-danger"> {{error}} </li>
+        {% endfor %}
+        </ul>
+{% else %}
+<dd>{{ field(**kwargs) | safe }} </dd>
+<br>
+{% endif %}
+
+{% endmacro %}
+

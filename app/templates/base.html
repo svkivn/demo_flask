@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+       <title>{% block title %} {{title}} {% endblock %} </title>
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="{{ url_for('static', filename='rys.png') }}" width=90 style="margin:8px">
+        </div>
+        <div class="col-md-9">
+          <div class="page-header">
+            <h1>About PNU 2023</h1>
+            <h2>Essential information for education</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "nav.html" %}
+
+    {% for cat, msg in get_flashed_messages(True) %}
+    <ul class="list-group">
+      <!--     <li class="list-group-item list-group-item-info">{{msg}}</li> -->
+      <li class="list-group-item list-group-item-{{cat}}">{{msg}}</li>
+    </ul>
+    {%endfor %}
+
+
+
+    {% block content %}
+    <h1>From base template</h1>
+    {% endblock %}
+
+
+
+      {% block footer %}
+      {% endblock %}
+      <div class="container-fluid">
+        <footer class="row">
+          <div class="text-center">
+            &copy; Copyright 2023 by
+            <a href="http://domain.invalid/">http://domain.invalid/</a>.</div>
+        </footer>
+      </div>
+
+    </body>
+  </html>
