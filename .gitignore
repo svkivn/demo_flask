@@ -3,6 +3,8 @@ env/*
 /venv/*
 venv/*
 .idea
-app/__pycache___/
+__pycache__/
+*.py[cod]
+/app/__pycache___
 instance/
 migrations/
